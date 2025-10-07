@@ -1,0 +1,39 @@
+import MyMap;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class test_map {
+
+    @Test
+    public void testPutAndGet() {
+        MyMap map = new MyMap();
+        map.put(1, 100);
+        map.put(2, 200);
+
+        int expected = 100;
+        int actual = map.get(1);
+        assertEquals(expected, actual);
+
+        expected = 200;
+        actual = map.get(2);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testOverwriteValue() {
+        MyMap map = new MyMap();
+        map.put(1, 100);
+        map.put(1, 999);
+
+        int expected = 999;
+        int actual = map.get(1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testContainsKey() {
+        MyMap map = new MyMap();
+        map.put(3, 300);
+
+        boolean expected = true;
+        boolean actual = map.containsKey(3)
